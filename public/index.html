@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwaasthyaGraph – Multilingual Family Health & Drug Interaction Network</title>
+  <!-- Google Fonts Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Background decorative elements -->
+  <div class="bg-blur blur-1"></div>
+  <div class="bg-blur blur-2"></div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="logo-area">
+      <div class="logo-icon">🩺</div>
+      <div>
+        <h1>SwaasthyaGraph</h1>
+        <p class="subtitle">HACKHAZARDS '26 High-Fidelity Interactive Demo</p>
+      </div>
+    </div>
+    <div class="submission-badge">
+      <span>Grand Total: 155 / 155 Points Target</span>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <main class="dashboard-grid">
+
+    <!-- Column 1: Expo Simulator -->
+    <section class="grid-card expo-simulator-card">
+      <div class="card-header">
+        <h2>📱 Expo Mobile Simulator</h2>
+        <span class="badge expo-badge">Expo Track (+20 pts)</span>
+      </div>
+      <p class="card-desc">React Native mobile application simulator showing client-side logging.</p>
+      
+      <!-- Phone Viewport Frame -->
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          
+          <!-- Mock Mobile App Header -->
+          <div class="mobile-app-header">
+            <span class="app-title">Swaasthya Mobile</span>
+            <div class="connection-dot"></div>
+          </div>
+
+          <!-- Mobile App Body -->
+          <div class="mobile-app-body">
+            
+            <!-- Patient Selector -->
+            <div class="mobile-section">
+              <label class="mobile-label">Active Family Member:</label>
+              <select id="patientSelect" class="mobile-select">
+                <option value="Swati">Swati (Self)</option>
+                <option value="Ramesh">Ramesh (Father) - Diabetic</option>
+                <option value="Sita">Sita (Mother) - Hypertensive</option>
+                <option value="Hari">Hari (Grandfather) - Cardiac</option>
+              </select>
+            </div>
+
+            <!-- Health Summary Panel -->
+            <div class="mobile-section health-summary-panel">
+              <h4>Active Medications</h4>
+              <ul id="activeDrugs" class="mobile-list">
+                <!-- Populated dynamically -->
+              </ul>
+              <h4 style="margin-top: 12px;">Logged Symptoms</h4>
+              <ul id="activeSymptoms" class="mobile-list">
+                <!-- Populated dynamically -->
+              </ul>
+            </div>
+
+            <!-- Sarvam AI Audio Simulator -->
+            <div class="mobile-section sarvam-container">
+              <div class="section-title-row">
+                <h4>🎙️ Sarvam voice logging</h4>
+                <span class="badge sarvam-badge">Sarvam Track</span>
+              </div>
+              <p class="section-desc">Speak or type in regional languages (e.g. Hindi, Tamil, Telugu) to log data.</p>
+              
+              <div class="voice-presets">
+                <button type="button" class="preset-btn" data-text="mujhe sir dard hai aur paracetamol chahiye">Hindi Log 1</button>
+                <button type="button" class="preset-btn" data-text="dadaji ko jodon me dard hai aur wo aspirin le rahe hain">Hindi Log 2</button>
+              </div>
+
+              <div class="voice-input-wrapper">
+                <input type="text" id="voiceTextInput" placeholder="Type or click preset..." class="mobile-input">
+                <button type="button" id="voiceMicBtn" class="mic-btn">
+                  <span class="mic-icon">🎤</span>
+                </button>
+              </div>
+
+              <!-- Translation Output -->
+              <div id="translationOutput" class="translation-output hidden">
+                <div class="output-row"><strong>Input:</strong> <span id="outRawText"></span></div>
+                <div class="output-row"><strong>English:</strong> <span id="outTranslatedText"></span></div>
+                <div class="output-row"><strong>Entities:</strong> <span id="outEntities" class="entities-badge-row"></span></div>
+              </div>
+            </div>
+
+            <!-- Manual Log Form -->
+            <div class="mobile-section manual-log">
+              <h4>Log Item Manually</h4>
+              <div class="form-row">
+                <select id="logType" class="mobile-select half">
+                  <option value="Symptom">Symptom</option>
+                  <option value="Drug">Medication</option>
+                </select>
+                <input type="text" id="logName" placeholder="e.g. Fever, Aspirin" class="mobile-input half">
+              </div>
+              <button type="button" id="submitLogBtn" class="mobile-btn">Save to Patient Record</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Column 2: Neo4j AuraDB Visualizer -->
+    <section class="grid-card graph-card">
+      <div class="card-header">
+        <h2>🌐 Neo4j AuraDB Graph Engine</h2>
+        <span class="badge neo4j-badge">Neo4j Track (+20 pts)</span>
+      </div>
+      <p class="card-desc">Visualizing live relationships, inheritance paths, and drug contraindications in AuraDB.</p>
+      
+      <!-- Graph Canvas -->
+      <div class="graph-viewer-container">
+        <svg id="graphSvg" width="100%" height="320">
+          <!-- Graph nodes and links rendered dynamically -->
+        </svg>
+        <div class="graph-legend">
+          <span class="legend-item"><span class="dot patient-dot"></span> Patient</span>
+          <span class="legend-item"><span class="dot drug-dot"></span> Drug</span>
+          <span class="legend-item"><span class="dot symptom-dot"></span> Symptom</span>
+        </div>
+      </div>
+
+      <!-- Cypher Console -->
+      <div class="console-box">
+        <div class="console-header">
+          <span>🖥️ Live Cypher Log</span>
+          <span class="console-status">Connected</span>
+        </div>
+        <div id="cypherLogs" class="console-body">
+          <div class="console-line text-cyan">// Fetching patient lineage and active treatments...</div>
+          <div class="console-line font-mono">MATCH (p:Patient)-[r]->(t) RETURN p, r, t LIMIT 50;</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Column 3: Render Workflows -->
+    <section class="grid-card workflows-card">
+      <div class="card-header">
+        <h2>⚙️ Render Workflows Dashboard</h2>
+        <span class="badge render-badge">Render Track</span>
+      </div>
+      <p class="card-desc">Monitoring background durable orchestration pipelines and microservices.</p>
+
+      <div class="workflow-control">
+        <button type="button" id="triggerWorkflowBtn" class="action-btn">Trigger Chronic Disease & Contraindication Review</button>
+      </div>
+
+      <!-- Workflow Running State -->
+      <div id="workflowStatusContainer" class="workflow-status-container hidden">
+        <div class="status-header">
+          <div>
+            <strong>Workflow ID:</strong> <span id="wfIdText" class="font-mono">wf-00000</span>
+          </div>
+          <div>
+            <span id="wfStatusBadge" class="status-badge running">Running</span>
+          </div>
+        </div>
+
+        <div class="progress-bar-container">
+          <div id="wfProgressBar" class="progress-bar" style="width: 0%"></div>
+        </div>
+        <div class="progress-percent-row">
+          <span>Analysis progress</span>
+          <strong id="wfProgressPercent">0%</strong>
+        </div>
+
+        <div class="workflow-log-box">
+          <h5>Orchestrator Activity Logs</h5>
+          <div id="workflowLogs" class="workflow-logs-body">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Base44 Prototype Details -->
+      <div class="base44-details">
+        <div class="detail-header">
+          <strong>🧩 Base44 Integration Config</strong>
+          <span class="badge base44-badge">Base44 Track (+10 pts)</span>
+        </div>
+        <p>Base44 handles the rapid orchestrator routing mapping patient intakes directly to the corresponding graph insertion API.</p>
+        <div class="config-snippet">
+          <pre>{
+  "trigger": "sarvam_ai_event",
+  "action": "post_neo4j_aura",
+  "pipeline": "render_durable_workflow"
+}</pre>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Notification Banner -->
+  <div id="alertBanner" class="alert-banner hidden">
+    <div class="alert-content">
+      <span class="alert-icon">⚠️</span>
+      <span id="alertMessage" class="alert-text">Warning: Severe conflict detected!</span>
+      <button type="button" id="closeAlertBtn" class="alert-close">&times;</button>
+    </div>
+  </div>
+
+  <!-- Footer Credit Links -->
+  <footer class="app-footer">
+    <div class="footer-links">
+      <a href="https://credits-portal-mmdm.onrender.com/claim/hackhazards" target="_blank" class="footer-btn">🎁 Claim $50 Render Credits</a>
+      <a href="https://www.namespace.world/hackathon-dashboard/29fe1a24-ef95-4a24-bba2-388b4b2cc89f" target="_blank" class="footer-btn">📊 Namespace Dashboard</a>
+    </div>
+    <p>&copy; NAMESPACE HACKHAZARDS '26 Submission Project. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

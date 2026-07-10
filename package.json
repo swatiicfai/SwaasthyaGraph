@@ -1,0 +1,13 @@
+{
+  "name": "swaasthyagraph",
+  "version": "1.0.0",
+  "description": "SwaasthyaGraph - Multilingual Family Health & Drug Interaction Network (HACKHAZARDS '26 Submission)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
