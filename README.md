@@ -51,7 +51,8 @@ _Add public link to your demo video (under 5 minutes)_
 
 ## 🔗 Deployment Link
 
-_Add deployment URL or APK download link here_
+**Live Demo**: [https://swaasthyagraph.vercel.app](https://swaasthyagraph.vercel.app)
+*(Deployed via Vercel for high-performance global edge delivery)*
 
 ## 📊 Presentation
 
