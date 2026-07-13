@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>SwaasthyaGraph - HACKHAZARDS '26</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/blood.min.css" id="theme">
+
+        <style>
+            .reveal h1, .reveal h2, .reveal h3 {
+                color: #00ffff;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            }
+            .accent {
+                color: #ff0055;
+                font-weight: bold;
+            }
+            .glass-box {
+                background: rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(0, 255, 255, 0.2);
+                border-radius: 15px;
+                padding: 20px;
+                margin-top: 20px;
+                backdrop-filter: blur(5px);
+            }
+            .flex-col {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                text-align: left;
+                font-size: 0.8em;
+            }
+            .tech-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                font-size: 0.7em;
+                text-align: left;
+            }
+            .tech-item {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 15px;
+                border-left: 4px solid #00ffff;
+                border-radius: 5px;
+            }
+        </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+                <!-- SLIDE 1 -->
+				<section>
+                    <h1>SwaasthyaGraph 🩺</h1>
+                    <h3>Multilingual Family Health & Drug Interaction Network</h3>
+                    <p>HACKHAZARDS '26 Submission</p>
+                    <div class="glass-box" style="font-size: 0.7em;">
+                        <p>Built with: <span class="accent">Expo • Neo4j AuraDB • Sarvam AI • Render Workflows</span></p>
+                        <p>🔴 Live: swaasthyagraph.vercel.app</p>
+                        <p>💻 GitHub: github.com/swatiicfai/SwaasthyaGraph</p>
+                    </div>
+                </section>
+
+                <!-- SLIDE 2 -->
+				<section>
+					<h2>A Silent, Dangerous Problem</h2>
+                    <div class="tech-grid" style="margin-top: 40px;">
+                        <div class="tech-item">
+                            <h3 style="color: #ff0055;">125,000+</h3>
+                            <p>Deaths per year caused by medication non-adherence & drug interactions (Annals of Internal Medicine)</p>
+                        </div>
+                        <div class="tech-item">
+                            <h3 style="color: #ff0055;">70%</h3>
+                            <p>Of Indian families managing 2+ chronic conditions simultaneously across generations</p>
+                        </div>
+                    </div>
+                    <div class="glass-box" style="font-size: 0.8em; margin-top: 40px;">
+                        💡 <strong>Key Insight:</strong> When grandfather takes Warfarin and grandson adds Aspirin — nobody warns them. That combination can cause fatal bleeding.
+                    </div>
+				</section>
+
+                <!-- SLIDE 3 -->
+				<section>
+                    <h2>SwaasthyaGraph Solution</h2>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <strong>🔗 Family Health Graph</strong><br>
+                            Models patients, drugs & symptoms as connected nodes in a live Neo4j AuraDB database.
+                        </div>
+                        <div class="tech-item">
+                            <strong>💊 Drug Conflict Detection</strong><br>
+                            Graph traversal instantly flags dangerous interactions (e.g. Aspirin + Warfarin = ⚠️ CONFLICT).
+                        </div>
+                        <div class="tech-item">
+                            <strong>🗣️ Multilingual Voice Logging</strong><br>
+                            Speak in Hindi, Tamil, Telugu — Sarvam AI transcribes, translates & extracts health entities automatically.
+                        </div>
+                        <div class="tech-item">
+                            <strong>⚙️ Durable Health Workflows</strong><br>
+                            Render Workflows runs background pipelines: scan → detect → summarise → alert.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 4 -->
+				<section>
+					<h2>Architecture & Tech Stack</h2>
+                    <table style="font-size: 0.6em; width: 100%; border-collapse: collapse;" class="glass-box">
+                        <tr style="border-bottom: 1px solid #00ffff;">
+                            <th style="padding: 10px;">Layer</th>
+                            <th style="padding: 10px;">Technology</th>
+                            <th style="padding: 10px;">Role</th>
+                        </tr>
+                        <tr><td style="padding: 10px;">Mobile App</td><td style="padding: 10px; color: #00ffff;">Expo (React Native)</td><td style="padding: 10px;">Cross-platform patient UI</td></tr>
+                        <tr><td style="padding: 10px;">Database</td><td style="padding: 10px; color: #00ffff;">Neo4j AuraDB</td><td style="padding: 10px;">Graph of patients/drugs/symptoms</td></tr>
+                        <tr><td style="padding: 10px;">AI / NLP</td><td style="padding: 10px; color: #00ffff;">Sarvam AI</td><td style="padding: 10px;">Multilingual voice transcription</td></tr>
+                        <tr><td style="padding: 10px;">Orchestration</td><td style="padding: 10px; color: #00ffff;">Render Workflows</td><td style="padding: 10px;">Durable background pipelines</td></tr>
+                        <tr><td style="padding: 10px;">Prototyping</td><td style="padding: 10px; color: #00ffff;">Base44</td><td style="padding: 10px;">Rapid routing configuration</td></tr>
+                    </table>
+                    <p style="font-size: 0.6em; margin-top: 30px; text-align: center; color: #888;">
+                        Voice Input → Sarvam AI → Node.js API → Neo4j AuraDB → Graph UI<br>
+                        ↓<br>
+                        Render Workflows (background analysis)
+                    </p>
+				</section>
+
+                <!-- SLIDE 5 -->
+                <section>
+                    <h2>See It In Action</h2>
+                    <div class="flex-col glass-box">
+                        <p>1️⃣ Dashboard loads → 12 nodes, 7 relationships rendered as live graph</p>
+                        <p>2️⃣ Select "Hari (Grandfather)" → Warfarin shown as active medication</p>
+                        <p>3️⃣ Click Hindi preset → "Mujhe sir dard hai" (Sarvam AI extracts Headache ✅)</p>
+                        <p>4️⃣ Add Aspirin to Hari → DRUG CONFLICT ALERT fires instantly <span style="color:#ff0055;">(High bleeding risk)</span></p>
+                        <p>5️⃣ Trigger Workflow → 4 steps complete with live progress bar → SMS alert dispatched</p>
+                    </div>
+                </section>
+
+                <!-- SLIDE 6 -->
+                <section>
+                    <h2>Impact & What's Next</h2>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <strong>📈 Target Market & Impact</strong><br>
+                            500M+ families managing chronic conditions. Removes language barriers in healthcare data entry for rural India.
+                        </div>
+                        <div class="tech-item">
+                            <strong>💰 Business Model</strong><br>
+                            B2B2C: Hospitals & insurers subsidise app access to reduce adverse drug event costs.
+                        </div>
+                    </div>
+                    <div class="glass-box" style="font-size: 0.7em;">
+                        <strong>Roadmap:</strong><br>
+                        Phase 1 ✅ MVP → Graph visualiser + drug conflict detection<br>
+                        Phase 2 🔄 Real Neo4j AuraDB integration + Sarvam production API<br>
+                        Phase 3 🔮 Doctor dashboard + WhatsApp bot for alerts<br>
+                        Phase 4 🔮 Insurance integration + predictive risk scoring
+                    </div>
+                    <p style="font-size: 0.6em; margin-top: 20px; font-style: italic;">
+                        "Every family deserves a health safety net. SwaasthyaGraph builds it — one graph at a time."
+                    </p>
+                </section>
+
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+                transition: 'convex',
+                autoPlayMedia: true,
+			});
+		</script>
+	</body>
+</html>
