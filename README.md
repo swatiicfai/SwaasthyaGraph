@@ -1,100 +1,80 @@
-# 🩺 SwaasthyaGraph – Multilingual Family Health & Drug Interaction Network
+# SwaasthyaGraph 🩺
 
-> **HACKHAZARDS '26 Submission**
+[![Live Demo](https://img.shields.io/badge/Live-Demo-00ffff?style=for-the-badge&logo=vercel&logoColor=black)](https://swaasthyagraph.vercel.app/)
+[![YouTube Demo](https://img.shields.io/badge/YouTube-Video_Pitch-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/UkmfzeHTyqI)
 
-## 📌 Problem Statement
-
-In India and across developing regions, families often manage chronic conditions across generations — diabetes in a parent, cardiac issues in a grandparent, hypertension in another. Drug interactions between medications taken by family members sharing a household are a **silent, dangerous risk**. Language barriers further prevent rural and semi-urban patients from accurately logging symptoms or understanding prescriptions.
-
-**SwaasthyaGraph** solves this by building a **graph-powered, multilingual health intelligence network** that models familial health relationships, detects dangerous drug-drug interactions, and enables voice-based symptom logging in regional languages.
-
-## 🎯 Theme(s)
-
-- **03. HealthTech & Bio Platforms** — Core theme
-- **01. Human Experience & Productivity** — Accessibility and personal health management
-
-## 🛠️ Tech Stack
-
-| Layer | Technology | Purpose |
-|:------|:-----------|:--------|
-| **Mobile Frontend** | Expo (React Native) | Mobile-first patient interface |
-| **Web Dashboard** | HTML, CSS, Vanilla JS | Interactive demo and graph visualizer |
-| **Backend** | Node.js + Express | REST API server |
-| **Database** | Neo4j AuraDB | Graph database for patient-drug-symptom relationships |
-| **AI/NLP** | Sarvam AI APIs | Multilingual voice transcription and entity extraction |
-| **Orchestration** | Render Workflows | Durable background pipelines for health analysis |
-| **Prototyping** | Base44 | Rapid prototype flow configuration |
-
-## 🏗️ Sponsored Tracks
-
-- ✅ **Expo Track** — Mobile-first React Native application
-- ✅ **Neo4j Track** — AuraDB as primary graph database
-- ✅ **Sarvam Track** — Multilingual voice AI integration
-- ✅ **Render Workflows Track** — Durable workflow orchestration
-- ✅ **Base44 Track** — Prototype flow built with Base44
-
-## ✨ Key Features
-
-1. **Family Health Graph** — Visualizes patients, their familial relationships (parent/child/grandparent), active medications, and symptoms as an interactive graph.
-2. **Drug Interaction Detection** — Automatically flags dangerous drug-drug interactions (e.g., Aspirin + Warfarin) when a new medication is added to any family member's record.
-3. **Multilingual Voice Logging** — Speak in Hindi, Tamil, Telugu, or other regional languages to log symptoms and medications. Sarvam AI transcribes and extracts structured entities.
-4. **Hereditary Risk Paths** — Graph traversal identifies inherited conditions across generations (e.g., grandfather's cardiac condition → father's diabetes → self's risk profile).
-5. **Durable Health Workflows** — Background pipelines on Render Workflows periodically scan the family graph for emerging contraindication risks and generate health summaries.
-
-## 📸 Screenshots
-
-_Add screenshots of the working application here_
-
-## 🎥 Demo Video
-
-_Add public link to your demo video (under 5 minutes)_
-
-## 🔗 Deployment Link
-
-**Live Demo**: [https://swaasthyagraph.vercel.app](https://swaasthyagraph.vercel.app)
-*(Deployed via Vercel for high-performance global edge delivery)*
-
-## 📊 Presentation
-
-_Add link to your PPT (max 6 slides)_
-
-## 🚀 How to Run Locally
-
-### Prerequisites
-- Node.js (v18+)
-- npm
-
-### Steps
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/swatiicfai/SwaasthyaGraph.git
-cd SwaasthyaGraph
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the server
-npm start
-
-# 4. Open in browser
-# Navigate to http://localhost:3000
-```
-
-## 🧑‍💻 Team
-
-| Name | Role | GitHub | LinkedIn |
-|:-----|:-----|:-------|:---------|
-| Swati | Full Stack Developer | [@swatiicfai](https://github.com/swatiicfai) | [LinkedIn](https://linkedin.com/) |
-
-## 🏆 What Makes This a Strong Submission
-
-- **Real-world problem**: Drug interactions across family members is an underserved, high-impact health safety issue.
-- **Graph-native architecture**: The problem is fundamentally about relationships — between people, drugs, symptoms, and conditions. A graph database is the natural fit.
-- **Multilingual accessibility**: Voice input in regional languages removes literacy and language barriers for healthcare data entry.
-- **Durable orchestration**: Background health analysis pipelines demonstrate production-grade reliability patterns.
-- **Multi-track integration**: Meaningfully integrates Expo, Neo4j AuraDB, Sarvam AI, Render Workflows, and Base44.
+> **Built for HACKHAZARDS '26**  
+> *Every family deserves a health safety net. SwaasthyaGraph builds it — one graph at a time.*
 
 ---
 
-### Made with ❤️ for HACKHAZARDS '26
+## 📖 Overview
+
+**SwaasthyaGraph** is a multilingual family health and drug interaction network built to protect families from dangerous medical oversights. 
+
+In rural and semi-urban areas, fragmented medical records lead to adverse drug events. A grandfather might be prescribed Warfarin, and later given Aspirin by a different doctor, causing a severe bleeding risk. **SwaasthyaGraph** solves this by modeling the entire family's health data as a live graph database.
+
+By allowing users to log symptoms and medications via **native language voice input** (Hindi, Tamil, Telugu), we remove the literacy and language barriers to entry. Background pipelines instantly analyze the data, traverse the family graph to find dangerous drug-drug interactions or hereditary risks, and dispatch SMS alerts.
+
+## 🚀 Features
+
+* 🕸️ **Live Family Graph**: Visualizes parents, children, and grandparents as nodes, linked to their medications and symptoms.
+* 🗣️ **Multilingual Voice Logging**: Users simply speak in their native tongue (e.g., *"Mujhe sir dard hai"*). The AI automatically transcribes, translates to English, extracts the medical entities, and injects them into the graph.
+* ⚠️ **Drug Interaction Engine**: Traverses the graph to find conflicting medications across the family history.
+* ⚙️ **Durable Async Pipelines**: Background jobs ensure that complex ancestral risk checks and SMS dispatching never fail.
+* 📱 **Mobile-First Client**: Built natively to feel like an app for end-users, while administrators view the rich dashboard.
+
+---
+
+## 🛠️ Tech Stack & Architecture (Hackathon Tracks)
+
+This project was specifically architected to leverage the power of four phenomenal partner technologies:
+
+### 1. Neo4j AuraDB (Database Track)
+Neo4j acts as the core intelligence engine. Traditional relational databases struggle with complex, multi-generational medical inheritance queries. We use Neo4j AuraDB to natively model `CHILD_OF`, `PRESCRIBED`, and `EXPERIENCING` relationships. Cypher queries can traverse the graph in milliseconds to find active drug contraindications.
+
+### 2. Sarvam AI (AI/NLP Track)
+To make healthcare accessible in India, English typing cannot be the default. We integrated Sarvam AI to handle the end-to-end voice pipeline: speech-to-text -> translation -> entity extraction (identifying symptoms vs. drugs).
+
+### 3. Render Workflows (Orchestration Track)
+Medical alerts cannot fail. When new symptoms are logged, a webhook triggers a durable 4-step Render Workflow:
+1. Analyze patient health metrics.
+2. Scan the Neo4j graph for active drug conflicts.
+3. Check ancestral hereditary risk paths.
+4. Compile a clinical summary and dispatch an SMS alert.
+
+### 4. Expo & React Native (Mobile Track)
+The entire client side is built using Expo for cross-platform availability. The dashboard features an embedded Expo web simulator to demonstrate the native mobile feel of the patient-facing application.
+
+### 5. Base44 (Prototyping)
+Used for rapid API routing configurations to link Sarvam AI output triggers to Neo4j graph mutations.
+
+---
+
+## 💻 Running Locally
+
+### Prerequisites
+* Node.js (v18+)
+* Neo4j AuraDB instance
+* Sarvam AI API Key
+* Render account
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/swatiicfai/SwaasthyaGraph.git
+cd SwaasthyaGraph
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+---
+
+## 🏆 HACKHAZARDS '26
+This project was built with ❤️ over the course of the hackathon by Swati Gupta. We proudly submit this to the **HealthTech & Bio Platforms** and **Human Experience & Productivity** themes.
